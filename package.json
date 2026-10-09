@@ -1,0 +1,16 @@
+{
+  "name": "x-digest",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "X のブックマークを毎日ローカルに蓄積し、週次で AI ダイジェストを生成する",
+  "scripts": {
+    "test": "node --test 'test/*.test.mjs'",
+    "fetch": "node src/fetch-bookmarks.mjs",
+    "login": "node src/fetch-bookmarks.mjs --login"
+  },
+  "dependencies": {
+    "playwright-core": "1.62.1"
+  }
+}

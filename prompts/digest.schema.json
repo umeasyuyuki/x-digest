@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["selections"],
+  "properties": {
+    "selections": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "category", "summary", "why"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "入力に存在するツイートID。入力に無いIDは呼び出し側で破棄される。"
+          },
+          "category": {
+            "type": "string",
+            "maxLength": 40,
+            "description": "技術領域などの短い分類ラベル"
+          },
+          "summary": {
+            "type": "string",
+            "maxLength": 120,
+            "description": "その投稿が何であるかの一言要約"
+          },
+          "why": {
+            "type": "string",
+            "maxLength": 400,
+            "description": "なぜ今これに注目する価値があるのか"
+          }
+        }
+      }
+    }
+  }
+}

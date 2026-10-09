@@ -1,0 +1,13 @@
+node_modules/
+.env
+
+# データとブラウザプロファイルはリポジトリ外 (~/Library/Application Support/x-digest/) に
+# 置く設計だが、X_DIGEST_DATA_DIR をリポジトリ内に向けた場合の事故を防ぐため二重に除外する。
+# profile/ には生きた X セッションの資格情報が入る。
+data/
+profile/
+raw/
+digests/
+state/
+*.jsonl
+*.log

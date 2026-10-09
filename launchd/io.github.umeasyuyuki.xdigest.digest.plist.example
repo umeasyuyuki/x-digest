@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  AI ダイジェストの生成。毎週月曜 8:00。
+  設置: ~/Library/LaunchAgents/io.github.umeasyuyuki.xdigest.digest.plist にコピーし、
+        YOUR-HOME を実際のホームパスに置換してから
+        launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/io.github.umeasyuyuki.xdigest.digest.plist
+
+  週次にしているのは、1日数件のブックマークに「最近の新技術」を毎日書かせても
+  内容が薄くトークンも無駄なため。日次にしたい場合は Weekday の行を消す。
+-->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>io.github.umeasyuyuki.xdigest.digest</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/zsh</string>
+		<string>YOUR-HOME/Projects/x-digest/scripts/digest.sh</string>
+	</array>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Weekday</key>
+		<integer>1</integer>
+		<key>Hour</key>
+		<integer>8</integer>
+		<key>Minute</key>
+		<integer>0</integer>
+	</dict>
+	<key>RunAtLoad</key>
+	<false/>
+	<key>StandardOutPath</key>
+	<string>/tmp/x-digest-digest.out</string>
+	<key>StandardErrorPath</key>
+	<string>/tmp/x-digest-digest.err</string>
+</dict>
+</plist>

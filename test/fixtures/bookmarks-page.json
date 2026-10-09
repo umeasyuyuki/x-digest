@@ -1,0 +1,123 @@
+{
+  "_comment": "X の Bookmarks GraphQL レスポンスの合成フィクスチャ。実データではない。構造の回帰を守るためのもの。",
+  "data": {
+    "bookmark_timeline_v2": {
+      "timeline": {
+        "instructions": [
+          { "type": "TimelineClearCache" },
+          {
+            "type": "TimelineAddEntries",
+            "entries": [
+              {
+                "entryId": "tweet-1000000000000000001",
+                "sortIndex": "9999999999999999001",
+                "content": {
+                  "entryType": "TimelineTimelineItem",
+                  "itemContent": {
+                    "itemType": "TimelineTweet",
+                    "tweet_results": {
+                      "result": {
+                        "__typename": "Tweet",
+                        "rest_id": "1000000000000000001",
+                        "core": {
+                          "user_results": {
+                            "result": {
+                              "__typename": "User",
+                              "legacy": { "screen_name": "alice_dev", "name": "Alice" }
+                            }
+                          }
+                        },
+                        "legacy": {
+                          "full_text": "普通のツイート https://t.co/abcd",
+                          "created_at": "Wed Aug 27 14:03:00 +0000 2026"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "entryId": "tweet-1000000000000000002",
+                "sortIndex": "9999999999999999002",
+                "content": {
+                  "entryType": "TimelineTimelineItem",
+                  "itemContent": {
+                    "itemType": "TimelineTweet",
+                    "tweet_results": {
+                      "result": {
+                        "__typename": "TweetWithVisibilityResults",
+                        "tweet": {
+                          "rest_id": "1000000000000000002",
+                          "core": { "screen_name": "bob_ml", "name": "Bob" },
+                          "legacy": {
+                            "full_text": "可視性ラッパー付きのツイート",
+                            "created_at": "Thu Aug 28 01:15:30 +0000 2026"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "entryId": "tweet-1000000000000000003",
+                "sortIndex": "9999999999999999003",
+                "content": {
+                  "entryType": "TimelineTimelineItem",
+                  "itemContent": {
+                    "itemType": "TimelineTweet",
+                    "tweet_results": {
+                      "result": {
+                        "__typename": "Tweet",
+                        "rest_id": "1000000000000000003",
+                        "core": {
+                          "user_results": { "result": { "legacy": { "screen_name": "carol_x" } } }
+                        },
+                        "legacy": {
+                          "full_text": "切り詰められた短い方のテキスト…",
+                          "created_at": "Thu Aug 28 02:00:00 +0000 2026"
+                        },
+                        "note_tweet": {
+                          "note_tweet_results": {
+                            "result": {
+                              "text": "長文ツイートの全文。note_tweet がある場合はこちらを優先する。"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "entryId": "tweet-1000000000000000004",
+                "sortIndex": "9999999999999999004",
+                "content": {
+                  "entryType": "TimelineTimelineItem",
+                  "itemContent": {
+                    "itemType": "TimelineTweet",
+                    "tweet_results": {
+                      "result": {
+                        "__typename": "TweetTombstone",
+                        "tombstone": { "text": { "text": "このポストは削除されました" } }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "entryId": "cursor-bottom-0000",
+                "sortIndex": "9999999999999999000",
+                "content": {
+                  "entryType": "TimelineTimelineCursor",
+                  "cursorType": "Bottom",
+                  "value": "DAABCgABExample"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

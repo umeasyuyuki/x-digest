@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  ブックマークの取得。毎日 7:00。
+  設置: ~/Library/LaunchAgents/io.github.umeasyuyuki.xdigest.fetch.plist にコピーし、
+        YOUR-HOME を実際のホームパスに置換してから
+        launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/io.github.umeasyuyuki.xdigest.fetch.plist
+
+  スクリプト側の冒頭で最大15分のランダムジッターを入れているので、
+  実際の実行は 7:00〜7:15 のどこかになる。
+  StartCalendarInterval はスリープで逃した回を起床時に1回だけ実行する。
+-->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>io.github.umeasyuyuki.xdigest.fetch</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/zsh</string>
+		<string>YOUR-HOME/Projects/x-digest/scripts/fetch.sh</string>
+	</array>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Hour</key>
+		<integer>7</integer>
+		<key>Minute</key>
+		<integer>0</integer>
+	</dict>
+	<key>RunAtLoad</key>
+	<false/>
+	<key>StandardOutPath</key>
+	<string>/tmp/x-digest-fetch.out</string>
+	<key>StandardErrorPath</key>
+	<string>/tmp/x-digest-fetch.err</string>
+</dict>
+</plist>
