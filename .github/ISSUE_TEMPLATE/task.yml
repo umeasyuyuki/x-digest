@@ -1,0 +1,53 @@
+name: タスク
+description: 1 Issue = 1 PR で終わる作業（機能追加・改修・雑務・ドキュメント）
+title: "feat: "
+labels: ["type:feat"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: 目的
+      description: なぜ・何を。1〜2 文で。
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 受け入れ条件（機械で確認できる形で）
+      description: エージェントが自分で合否を判定できるように書く。書けない場合は needs-human ラベルを付け、決めるべきことを書く。
+      value: |
+        - [ ] Given … When … Then …
+        - [ ] 検証コマンドがすべて通る
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 触るファイル / 触らないファイル
+      description: 並列実行時の衝突確認に使う。glob 可。
+      placeholder: |
+        触る: src/features/invoice/**
+        触らない: prisma/schema.prisma
+    validations:
+      required: true
+  - type: textarea
+    id: verify
+    attributes:
+      label: 検証コマンド
+      value: |
+        npm run test
+  - type: textarea
+    id: refs
+    attributes:
+      label: 参照
+      description: FR-ID / SC-ID、要件定義書・decisions.md のパス、関連 Issue（blocked-by は Relationships 欄で設定）
+  - type: dropdown
+    id: size
+    attributes:
+      label: サイズ
+      options:
+        - S（半日以内）
+        - M（1 日程度）
+        - L（1 日超 → 親 Issue にして分割する）
+    validations:
+      required: true
